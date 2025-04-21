@@ -23,7 +23,7 @@ export default function SignIn() {
       setError("Invalid login credentials.");
     } else if (result?.ok) {
       // Instead of router.push, do a full page reload
-      window.location.replace("/dashboard"); ;
+      router.push("/dashboard");
     }
   }
 

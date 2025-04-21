@@ -9,24 +9,20 @@ export default function Dashboard() {
   const router = useRouter();
 
   useEffect(() => {
-    async function checkSessionManually() {
-      const res = await fetch("/api/auth/session");
-      const sessionData = await res.json();
-      console.log("Manual fetch session:", sessionData);
-    }
+
 
 
     if (status === "unauthenticated") {
-      alert("Not authenticated"); // 🔥 show popup immediately
+     // 🔥 show popup immediately
       router.push("/signin");
     }
 
     if (status === "authenticated" && session) {
-      alert(JSON.stringify(session, null, 2)); // 🔥 show session popup immediately
+     // alert(JSON.stringify(session, null, 2)); // 🔥 show session popup immediately
     }
 
 
-    checkSessionManually();
+
   }, [status, session, router]);
 
   if (status === "loading") {
