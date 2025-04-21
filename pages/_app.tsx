@@ -3,12 +3,13 @@ import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import Header from "../components/Header";
+import { SessionProvider } from "next-auth/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   return (
-    <>
+   <>
       <Head>
         <title>Soflake - Unlock your Business Potential</title>
         <meta name="description" content="Soflake - Your partner in digital transformation." />
@@ -16,9 +17,9 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
 
       <main className={inter.className}>
-      <Header />
+        <Header />
         <Component {...pageProps} />
       </main>
-    </>
+   </>
   );
 }
