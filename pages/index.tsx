@@ -9,10 +9,10 @@ export default function Home() {
         {/* Hero Section */}
         <section className="text-center mt-20">
           <h1 className="text-5xl md:text-6xl font-extrabold leading-tight tracking-tight text-gray-900 mb-6">
-            Power your business <br /> with <span className="text-blue-600">Soflake</span>
+            Unlock your Business Potential<br /> with <span className="text-blue-600">Soflake</span>
           </h1>
           <p className="text-lg md:text-xl text-gray-600 mb-10">
-          Launch, manage, and grow your business online — without the technical hassle.
+          Launch your online storefront, accept bookings, and manage your business — all in one simple platform.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-20">
             <Link href="/contact-sales">

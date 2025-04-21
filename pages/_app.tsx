@@ -10,7 +10,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Soflake</title>
+        <title>Soflake - Unlock your Business Potential</title>
         <meta name="description" content="Soflake - Your partner in digital transformation." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
