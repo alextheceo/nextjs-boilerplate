@@ -9,9 +9,9 @@ export default function Header() {
   return (
     <header className="w-full bg-white shadow-md">
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
-        <div className="text-2xl font-bold text-blue-600">
-          Soflake
-        </div>
+              <Link href="/" className="text-2xl font-bold text-blue-600">
+                  Soflake
+              </Link>
 
         {/* Desktop Menu */}
         <nav className="hidden md:flex space-x-8 text-gray-700 text-lg">

@@ -5,7 +5,7 @@ import { ShoppingBagIcon, CalendarIcon, Cog6ToothIcon } from "@heroicons/react/2
 export default function Home() {
   return (
     <>
-      <Header />
+
       <main className="min-h-screen bg-gradient-to-b from-gray-50 to-white flex flex-col items-center justify-center px-6">
         {/* Hero Section */}
         <section className="text-center mt-20">
@@ -13,7 +13,7 @@ export default function Home() {
             Power your business <br /> with <span className="text-blue-600">Soflake</span>
           </h1>
           <p className="text-lg md:text-xl text-gray-600 mb-10">
-            Build beautiful storefronts, enable seamless bookings, and grow faster.
+          Launch, manage, and grow your business online — without the technical hassle.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-20">
             <Link href="/contact-sales">
