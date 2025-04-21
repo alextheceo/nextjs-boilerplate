@@ -35,12 +35,13 @@ export default function Header() {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden flex flex-col bg-white px-6 pb-4 text-lg space-y-2">
-          <Link href="/products" onClick={() => setIsOpen(false)}>Products</Link>
-          <Link href="/solutions" onClick={() => setIsOpen(false)}>Solutions</Link>
-          <Link href="/pricing" onClick={() => setIsOpen(false)}>Pricing</Link>
-          <Link href="/contact-sales" onClick={() => setIsOpen(false)}>Contact Sales</Link>
-          <Link href="/signin" onClick={() => setIsOpen(false)} className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">Sign In</Link>
+            <Link href="/products" onClick={() => setIsOpen(false)} className="text-gray-800 hover:text-blue-600 transition">Products</Link>
+            <Link href="/solutions" onClick={() => setIsOpen(false)} className="text-gray-800 hover:text-blue-600 transition">Solutions</Link>
+            <Link href="/pricing" onClick={() => setIsOpen(false)} className="text-gray-800 hover:text-blue-600 transition">Pricing</Link>
+            <Link href="/contact-sales" onClick={() => setIsOpen(false)} className="text-gray-800 hover:text-blue-600 transition">Contact Sales</Link>
+            <Link href="/signin" onClick={() => setIsOpen(false)} className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition">Sign In</Link>
         </div>
+
       )}
     </header>
   );
