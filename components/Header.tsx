@@ -9,16 +9,16 @@ export default function Header() {
   return (
     <header className="w-full bg-white shadow-md">
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
-              <Link href="/" className="text-2xl font-bold text-blue-600">
+              <Link href="/" className="text-3xl font-bold text-blue-600">
                   Soflake
               </Link>
 
         {/* Desktop Menu */}
-        <nav className="hidden md:flex space-x-8 text-gray-700 text-lg">
-          <Link href="/products" className="hover:text-blue-600">Products</Link>
-          <Link href="/solutions" className="hover:text-blue-600">Solutions</Link>
-          <Link href="/pricing" className="hover:text-blue-600">Pricing</Link>
-          <Link href="/contact-sales" className="hover:text-blue-600">Contact Sales</Link>
+        <nav className="hidden md:flex space-x-8 text-gray-700 text-lg transition">
+          <Link href="/products" className="hover:text-blue-600 py-2">Products</Link>
+          <Link href="/solutions" className="hover:text-blue-600 py-2">Solutions</Link>
+          <Link href="/pricing" className="hover:text-blue-600 py-2">Pricing</Link>
+          <Link href="/contact-sales" className="hover:text-blue-600 py-2">Contact Sales</Link>
           <Link href="/signin" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition">Sign In</Link>
         </nav>
 

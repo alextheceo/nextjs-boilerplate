@@ -38,7 +38,7 @@ export default function Pricing() {
       </p>
 
       {/* CTA */}
-      <div className="mt-8">
+      <div className="flex flex-col items-center justify-center mt-16 md:mt-24">
         <Link href="/contact-sales">
           <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg text-lg transition">
             Contact Sales

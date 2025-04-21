@@ -4,7 +4,7 @@ import { BuildingStorefrontIcon, CalendarDaysIcon, UserGroupIcon } from "@heroic
 export default function Solutions() {
   return (
     <main className="flex flex-col items-center justify-center min-h-screen bg-white px-6">
-      <h1 className="text-5xl font-extrabold text-gray-900 mb-8">Solutions for Every Business</h1>
+      <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-8 text-center md:text-left px-4">Solutions for Every Business</h1>
       <p className="text-lg text-gray-600 mb-16 text-center max-w-2xl">
         Whether you&apos;re launching an online store, offering services, or managing bookings — Soflake helps you build your online presence effortlessly.
       </p>
@@ -38,7 +38,7 @@ export default function Solutions() {
         </div>
       </div>
 
-      <div className="mt-16">
+      <div className="flex flex-col items-center justify-center mt-16 md:mt-24">
         <Link href="/contact-sales">
           <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg text-lg transition">
             Contact Sales
