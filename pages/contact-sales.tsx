@@ -4,7 +4,7 @@ export default function ContactSales() {
         {/* Title */}
         <h1 className="text-5xl font-extrabold text-gray-900 mb-8">Contact Sales</h1>
         <p className="text-lg text-gray-600 mb-16 text-center max-w-2xl">
-          Let's talk! Reach out to our team to find the right solution for your business.
+        Let&apos;s talk! Reach out to our team to find the right solution for your business.
         </p>
   
         {/* Contact Form */}

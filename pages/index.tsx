@@ -1,4 +1,3 @@
-import Header from "../components/Header";
 import Link from "next/link";
 import { ShoppingBagIcon, CalendarIcon, Cog6ToothIcon } from "@heroicons/react/24/outline";
 

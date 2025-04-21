@@ -6,7 +6,7 @@ export default function Solutions() {
     <main className="flex flex-col items-center justify-center min-h-screen bg-white px-6">
       <h1 className="text-5xl font-extrabold text-gray-900 mb-8">Solutions for Every Business</h1>
       <p className="text-lg text-gray-600 mb-16 text-center max-w-2xl">
-        Whether you're launching an online store, offering services, or managing bookings — Soflake helps you build your online presence effortlessly.
+        Whether you&apos;re launching an online store, offering services, or managing bookings — Soflake helps you build your online presence effortlessly.
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl w-full">
