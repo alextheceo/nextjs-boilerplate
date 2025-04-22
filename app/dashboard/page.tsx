@@ -1,6 +1,6 @@
 "use client";
 
-import { useSession } from "next-auth/react";
+import { useSession, signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
@@ -9,21 +9,10 @@ export default function Dashboard() {
   const router = useRouter();
 
   useEffect(() => {
-
-
-
     if (status === "unauthenticated") {
-     // 🔥 show popup immediately
       router.push("/signin");
     }
-
-    if (status === "authenticated" && session) {
-     // alert(JSON.stringify(session, null, 2)); // 🔥 show session popup immediately
-    }
-
-
-
-  }, [status, session, router]);
+  }, [status, router]);
 
   if (status === "loading") {
     return (
@@ -42,9 +31,16 @@ export default function Dashboard() {
           Welcome, {firstName}!
         </h1>
 
-        <p className="text-lg text-gray-600">
-          This is your Soflake Dashboard.
+        <p className="text-lg text-gray-600 mb-8">
+          Manage your storefront and grow your business 🚀
         </p>
+
+        <button
+          onClick={() => signOut({ callbackUrl: "/signin" })}
+          className="bg-red-600 hover:bg-red-700 text-white py-3 px-6 rounded-lg text-lg"
+        >
+          Sign Out
+        </button>
       </main>
     );
   }
