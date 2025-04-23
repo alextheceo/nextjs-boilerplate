@@ -1,5 +1,5 @@
 import { PrismaClient } from "@prisma/client";
-import { hash, compare } from "bcrypt";
+import { hash } from "bcrypt";
 
 const prisma = new PrismaClient();
 
@@ -28,8 +28,8 @@ export async function POST(req: Request) {
     });
 
     return new Response(JSON.stringify({ success: true }), { status: 201 });
-  } catch (error) {
-    console.error(error);
-    return new Response(JSON.stringify({ error: "Something went wrong" }), { status: 500 });
+  } catch (_error) {
+    console.error("Error during signup:", _error);
+    //return new Response(JSON.stringify({ error: "Something went wrong" }), { status: 500 });
   }
 }

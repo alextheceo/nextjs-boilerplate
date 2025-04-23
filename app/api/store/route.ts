@@ -17,12 +17,12 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Slug is already taken." }, { status: 409 });
     }
 
-    console.log("📦 Creating store for userId:", userId);
+    
 
-    const store = await prisma.store.create({
+    await prisma.store.create({
       data: { userId, storeName, bannerText, slug },
     });
-    console.log("✅ Store created:", store);
+    
 
     await prisma.user.update({
       where: { id: userId },
@@ -31,7 +31,7 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ success: true }, { status: 200 });
   } catch (error) {
-    console.error("[ONBOARDING_ERROR]", error);
-    return NextResponse.json({ error: "Server error" }, { status: 500 });
+    console.log("Error during store creation:", error);
+    //return NextResponse.json({ error: "Server error" }, { status: 500 });
   }
 }

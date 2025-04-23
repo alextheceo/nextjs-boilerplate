@@ -7,7 +7,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function SignUpPage() {
-  const router = useRouter();
   const [error, setError] = useState("");
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {

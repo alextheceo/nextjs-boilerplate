@@ -12,10 +12,7 @@ export default function Dashboard() {
     if (status === "unauthenticated") {
       router.push("/signin");
     }
-    console.log("Session status:", status);
-    console.log("Session user:", session?.user);
-    console.log("Session isOnboarded:", session?.user?.isOnboarded);
-
+    
     if (status === "authenticated" && session?.user && !session.user.isOnboarded) {
       router.replace("/onboarding");
     }
