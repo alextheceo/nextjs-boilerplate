@@ -109,10 +109,10 @@ export default function SignIn() {
           </button>
 
           <p className="mt-6 text-center text-sm text-[var(--foreground)]">
-            Don’t have an account?{" "}
-            <a href="/signup" className="text-[var(--accent)] hover:underline font-medium">
+            Don&apos;t have an account?{" "}
+            <Link href="/signup" className="text-[var(--accent)] hover:underline font-medium">
               Sign up here
-            </a>
+            </Link>
           </p>
         </div>
       </main>
