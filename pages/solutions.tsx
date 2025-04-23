@@ -8,7 +8,7 @@ export default function Solutions() {
         Solutions for Every Business
       </h1>
       <p className="text-lg text-[var(--foreground)] opacity-70 mb-16 text-center max-w-2xl">
-        Whether you're launching an online store, offering services, or managing bookings — Soflake helps you build your online presence effortlessly.
+        Whether you&apos;re launching an online store, offering services, or managing bookings — Soflake helps you build your online presence effortlessly.
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl w-full">
