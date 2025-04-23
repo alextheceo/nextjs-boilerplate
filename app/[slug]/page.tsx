@@ -5,9 +5,11 @@ import Link from "next/link";
 
 const prisma = new PrismaClient();
 
-export default async function StorefrontPage({ params }: { params: { slug: string } }) {
+export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+
   const store = await prisma.store.findUnique({
-    where: { slug: params.slug },
+    where: { slug },
   });
 
   if (!store) return notFound();
@@ -63,7 +65,13 @@ export default async function StorefrontPage({ params }: { params: { slug: strin
             <h2 className="text-3xl font-bold text-center mb-8">Our Products</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                <Image src="/chocolate-cake.png" alt="Chocolate Cake" width={400} height={300} className="w-full object-cover" />
+                <Image
+                  src="/chocolate-cake.png"
+                  alt="Chocolate Cake"
+                  width={400}
+                  height={300}
+                  className="w-full object-cover"
+                />
                 <div className="p-5">
                   <h3 className="text-xl font-semibold mb-1">Chocolate Cake</h3>
                   <p className="text-sm text-gray-600">Rich and moist, serves 12</p>
@@ -72,7 +80,13 @@ export default async function StorefrontPage({ params }: { params: { slug: strin
               </div>
 
               <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                <Image src="/blueberry-muffin.png" alt="Blueberry Muffin" width={400} height={300} className="w-full object-cover" />
+                <Image
+                  src="/blueberry-muffin.png"
+                  alt="Blueberry Muffin"
+                  width={400}
+                  height={300}
+                  className="w-full object-cover"
+                />
                 <div className="p-5">
                   <h3 className="text-xl font-semibold mb-1">Blueberry Muffin</h3>
                   <p className="text-sm text-gray-600">With fresh, juicy blueberries</p>
