@@ -4,7 +4,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { SessionProviderWrapper } from "@/components/SessionProviderWrapper";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata = {
   title: "Soflake - Unlock Your Business Potential",
@@ -16,9 +16,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${inter.variable} bg-[var(--background)] text-[var(--foreground)]`}>
         <SessionProviderWrapper session={session}>
-          {children}
+          <div className="min-h-screen font-sans">{children}</div>
         </SessionProviderWrapper>
       </body>
     </html>

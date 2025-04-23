@@ -3,6 +3,7 @@
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function SignIn() {
   const router = useRouter();
@@ -32,24 +33,24 @@ export default function SignIn() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-[var(--background)] text-[var(--foreground)]">
       {/* Header */}
-      <header className="flex items-center h-16 px-6 border-b border-gray-200">
-        <a href="/" className="text-xl font-bold text-gray-800">
+      <header className="flex items-center h-16 px-6 border-b border-[var(--border)] bg-[var(--card)]">
+        <Link href="/" className="text-3xl font-bold text-[var(--accent)]">
           Soflake
-        </a>
+        </Link>
       </header>
 
-      {/* Content */}
+      {/* Main Card */}
       <main className="flex items-center justify-center px-4 py-12">
-        <div className="w-full max-w-md rounded-xl bg-white p-8 shadow-md">
-          <h2 className="text-center text-2xl font-bold text-gray-900 mb-6">
+        <div className="w-full max-w-md rounded-xl bg-[var(--card)] p-8 shadow-md border border-[var(--border)]">
+          <h2 className="text-center text-2xl font-bold mb-6 text-[var(--foreground)]">
             Sign in to Soflake
           </h2>
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="email" className="block text-sm font-medium mb-1">
                 Email address
               </label>
               <input
@@ -57,12 +58,12 @@ export default function SignIn() {
                 type="email"
                 required
                 placeholder="you@example.com"
-                className="w-full rounded-md border border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200"
+                className="w-full rounded-md bg-[var(--input)] border border-[var(--border)] px-4 py-2 shadow-sm focus:border-[var(--accent)] focus:ring"
               />
             </div>
 
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="password" className="block text-sm font-medium mb-1">
                 Password
               </label>
               <input
@@ -70,38 +71,40 @@ export default function SignIn() {
                 type="password"
                 required
                 placeholder="••••••••"
-                className="w-full rounded-md border border-gray-300 px-4 py-2 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200"
+                className="w-full rounded-md bg-[var(--input)] border border-[var(--border)] px-4 py-2 shadow-sm focus:border-[var(--accent)] focus:ring"
               />
             </div>
 
             <button
               type="submit"
-              className="w-full rounded-md bg-blue-600 py-2 px-4 text-white font-semibold hover:bg-blue-700 transition"
+              className="w-full rounded-md bg-[var(--accent)] py-2 px-4 text-white font-semibold hover:bg-[var(--accent-dark)] transition"
             >
               Sign In
             </button>
 
-            {error && <p className="text-red-600 text-sm mt-2 text-center">{error}</p>}
+            {error && (
+              <p className="text-red-600 text-sm mt-2 text-center">{error}</p>
+            )}
           </form>
 
           <div className="my-6 flex items-center justify-center">
-            <div className="h-px w-full bg-gray-300" />
-            <span className="mx-3 text-sm text-gray-500">or</span>
-            <div className="h-px w-full bg-gray-300" />
+            <div className="h-px w-full bg-[var(--border)]" />
+            <span className="mx-3 text-sm text-[var(--foreground)] opacity-60">or</span>
+            <div className="h-px w-full bg-[var(--border)]" />
           </div>
 
           <button
             type="button"
             onClick={handleGoogleSignIn}
-            className="flex items-center justify-center gap-3 w-full border border-gray-300 rounded-md py-2 px-4 text-sm font-medium text-gray-700 hover:bg-gray-100 transition"
+            className="flex items-center justify-center gap-3 w-full border border-[var(--border)] rounded-md py-2 px-4 text-sm font-medium text-[var(--foreground)] hover:bg-[var(--input)] transition"
           >
             <img src="/google_icon.svg" alt="Google" className="w-5 h-5" />
             Sign in with Google
           </button>
 
-          <p className="mt-6 text-center text-sm text-gray-600">
+          <p className="mt-6 text-center text-sm text-[var(--foreground)]">
             Don’t have an account?{" "}
-            <a href="/signup" className="text-blue-600 hover:underline font-medium">
+            <a href="/signup" className="text-[var(--accent)] hover:underline font-medium">
               Sign up here
             </a>
           </p>

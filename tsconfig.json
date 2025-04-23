@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": ".", 
     "target": "ES2017",
     "lib": [
       "dom",
@@ -20,7 +21,16 @@
     "types": ["next-auth"],
     "paths": {
       "@/*": [
-        "./*","./lib/*","./app/*"
+        "./*"
+      ],
+      "@/components/*": [
+        "components/*"
+      ],
+      "@/lib/*": [
+        "lib/*"
+      ],
+      "@/app/*": [
+        "app/*"
       ]
     },
     "plugins": [
