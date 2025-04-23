@@ -72,9 +72,18 @@ export const authOptions: AuthOptions = {
       return token;
     },
 
-    async session({ session, token }) {
-      session.user.id = token.id as string;
-      return session;
-    },
+      async session({ session, token }) {
+          const userInDb = await prisma.user.findUnique({
+              where: { email: session.user?.email || "" },
+              include: { store: true },
+          });
+
+          if (userInDb && session.user) {
+              session.user.id = userInDb.id;
+              session.user.isOnboarded = !!userInDb.store;
+          }
+
+          return session;
+      },
   },
 };

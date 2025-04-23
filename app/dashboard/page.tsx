@@ -12,7 +12,14 @@ export default function Dashboard() {
     if (status === "unauthenticated") {
       router.push("/signin");
     }
-  }, [status, router]);
+    console.log("Session status:", status);
+    console.log("Session user:", session?.user);
+    console.log("Session isOnboarded:", session?.user?.isOnboarded);
+
+    if (status === "authenticated" && session?.user && !session.user.isOnboarded) {
+      router.replace("/onboarding");
+    }
+  }, [status, session, router]);
 
   if (status === "loading") {
     return (
@@ -22,8 +29,8 @@ export default function Dashboard() {
     );
   }
 
-  if (status === "authenticated" && session) {
-    const firstName = session.user?.name?.split(" ")[0] || "there";
+  if (status === "authenticated" && session?.user?.isOnboarded) {
+    const firstName = session.user.name?.split(" ")[0] || "there";
 
     return (
       <main className="flex flex-col items-center justify-center min-h-screen px-6 bg-white">
