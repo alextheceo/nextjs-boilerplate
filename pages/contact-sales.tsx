@@ -6,7 +6,7 @@ export default function ContactSales() {
         Contact Sales
       </h1>
       <p className="text-base text-[var(--foreground)] opacity-70 mb-12 text-center max-w-xl">
-        Let's talk — we'll help you find the right solution for your business.
+        Let&apos;s talk — we&apos;ll help you find the right solution for your business.
       </p>
 
       {/* Contact Form */}
