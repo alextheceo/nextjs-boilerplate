@@ -1,39 +1,41 @@
 "use client";
 
-import { signIn } from "next-auth/react";
-import { useRouter } from "next/navigation";
 import { useState } from "react";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { signIn } from "next-auth/react";
 import Image from "next/image";
+import Link from "next/link";
 
-export default function SignIn() {
+export default function SignUpPage() {
   const router = useRouter();
   const [error, setError] = useState("");
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
+    const name = (form.elements.namedItem("name") as HTMLInputElement).value;
     const email = (form.elements.namedItem("email") as HTMLInputElement).value;
     const password = (form.elements.namedItem("password") as HTMLInputElement).value;
 
-    const result = await signIn("credentials", {
-      redirect: false,
-      email,
-      password,
+    const res = await fetch("/api/signup", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, email, password }),
     });
-    if (result?.error === "UserNotFound") {
-      router.push("/signup");
-      return;
-    }
 
-    if (result?.error) {
-      setError("Invalid login credentials.");
+    if (res.ok) {
+      await signIn("credentials", {
+        email,
+        password,
+        callbackUrl: "/dashboard",
+      });
     } else {
-      router.push("/dashboard");
+      const result = await res.json();
+      setError(result.error || "Something went wrong.");
     }
   }
 
-  const handleGoogleSignIn = () => {
+  const handleGoogleSignUp = () => {
     signIn("google", { callbackUrl: "/dashboard" });
   };
 
@@ -50,10 +52,23 @@ export default function SignIn() {
       <main className="flex items-center justify-center px-4 py-12">
         <div className="w-full max-w-md rounded-xl bg-[var(--card)] p-8 shadow-md border border-[var(--border)]">
           <h2 className="text-center text-2xl font-bold mb-6 text-[var(--foreground)]">
-            Sign in to Soflake
+            Create your account
           </h2>
 
           <form onSubmit={handleSubmit} className="space-y-4">
+            <div>
+              <label htmlFor="name" className="block text-sm font-medium mb-1">
+                Name
+              </label>
+              <input
+                name="name"
+                type="text"
+                required
+                placeholder="Your name"
+                className="w-full rounded-md bg-[var(--input)] border border-[var(--border)] px-4 py-2 shadow-sm focus:border-[var(--accent)] focus:ring"
+              />
+            </div>
+
             <div>
               <label htmlFor="email" className="block text-sm font-medium mb-1">
                 Email address
@@ -84,7 +99,7 @@ export default function SignIn() {
               type="submit"
               className="w-full rounded-md bg-[var(--accent)] py-2 px-4 text-white font-semibold hover:bg-[var(--accent-dark)] transition"
             >
-              Sign In
+              Sign Up
             </button>
 
             {error && (
@@ -100,19 +115,18 @@ export default function SignIn() {
 
           <button
             type="button"
-            onClick={handleGoogleSignIn}
+            onClick={handleGoogleSignUp}
             className="flex items-center justify-center gap-3 w-full border border-[var(--border)] rounded-md py-2 px-4 text-sm font-medium text-[var(--foreground)] hover:bg-[var(--input)] transition"
           >
             <Image src="/google_icon.svg" alt="Google" width={20} height={20} />
-
-            Sign in with Google
+            Sign up with Google
           </button>
 
           <p className="mt-6 text-center text-sm text-[var(--foreground)]">
-            Don’t have an account?{" "}
-            <a href="/signup" className="text-[var(--accent)] hover:underline font-medium">
-              Sign up here
-            </a>
+            Already have an account?{" "}
+            <Link href="/signin" className="text-[var(--accent)] hover:underline font-medium">
+              Sign in here
+            </Link>
           </p>
         </div>
       </main>
